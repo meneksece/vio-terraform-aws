@@ -4,7 +4,7 @@ resource "aws_instance" "myec2" {
   availability_zone      = var.aws_availability_zone
   key_name               = var.ec2_key_name
   vpc_security_group_ids = var.ec2_security_group_ids
-  iam_instance_profile   = var.existing_ec2_instance_profile # existing ec2 instance profile which was created with certain role including certain permissions needed for kops
+  iam_instance_profile   = data.existing_ec2_instance_profile # existing ec2 instance profile which was created with certain role including certain permissions needed for kops
   tags = {
     Name = "ec2-for-kops"
   }

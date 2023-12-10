@@ -18,3 +18,7 @@ variable "AMIS" {
 
 }
 
+variable "existing_ec2_instance_profile" {
+  description = "existing ec2 profile with certain iam role to provision ec2"
+  default = "ec2_instance_role"
+}
