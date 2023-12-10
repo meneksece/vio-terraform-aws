@@ -1,5 +1,5 @@
 resource "aws_instance" "myec2" {
-  count=2
+  # count=2   # you can create 2 or multiple ec2 instances with this count line
   ami                    = var.AMIS[var.aws_region]
   instance_type          = var.ec2_instance_type
   availability_zone      = var.aws_availability_zone
