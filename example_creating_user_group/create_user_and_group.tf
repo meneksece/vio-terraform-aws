@@ -1,7 +1,4 @@
-# Include the provider configuration
-# provider "aws" {
-#   region = var.REGION
-# }
+
 
 # Create an IAM group
 resource "aws_iam_group" "example_group" {
@@ -19,8 +16,9 @@ resource "aws_iam_user_group_membership" "example_membership" {
   groups = [aws_iam_group.example_group.name]
 }
 
+# although we can attach policies to the group, we will create the ec2 instances with a instance profile with its permissions for kops 
 
-# Attach policies to the IAM group using for_each
+# Attach policies to the IAM group using for_each  
 resource "aws_iam_group_policy_attachment" "group_policy_attachments" {
   for_each = toset(var.policy_arns)
 

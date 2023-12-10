@@ -1,11 +1,5 @@
-variable "REGION" {
-
+variable "aws_region" {
   default = "eu-central-1"
-
-}
-
-variable "AZ1" {
-  default = "eu-central-1a"
 }
 
 variable "user_name" {
