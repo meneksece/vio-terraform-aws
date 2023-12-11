@@ -7,7 +7,7 @@ resource "aws_instance" "myec2" {
   vpc_security_group_ids = var.ec2_security_group_ids
   iam_instance_profile   = data.aws_iam_instance_profile.example.name # existing ec2 instance profile which was created with certain role including certain permissions needed for kops
   tags = {
-    Name = "ec2-for-kops2"
+    Name = "ec2-for-kops"
   }
 }
 

@@ -12,3 +12,4 @@ create_user_and_group_attachpolicies is to create user and group and attaching a
 When creating ec2 we won't be using this since I don't want to create an IAM access key for the user. 
 We will be using create_ec2_with_instance_profile for security reasons.
 
+create_simple_s3_bucket is to create an s3 bucket with versioning enable.
