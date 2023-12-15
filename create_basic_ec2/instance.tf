@@ -8,4 +8,22 @@ resource "aws_instance" "myec2" {
   tags = {
     Name = "ec2-ect-instance"
   }
+  # user_data = file("${path.module}/files/user_data.sh") # Path to your user data script file
+  user_data = file("test.sh")
+
+}
+
+# <<-EOF
+#               #!/bin/bash
+#               echo 'export NAME=vio-first-cluster.k8s.local' >> /etc/environment
+#               echo 'export KOPS_STATE_STORE=s3://vios3-state-store' >> /etc/environment
+#               EOF
+
+
+output "aws_instance" {
+  value = aws_instance.myec2.public_ip
+}
+
+output "aws_instance_user_data" {
+  value = aws_instance.myec2.user_data
 }

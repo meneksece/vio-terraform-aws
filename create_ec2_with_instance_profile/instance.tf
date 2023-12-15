@@ -9,8 +9,16 @@ resource "aws_instance" "myec2" {
   tags = {
     Name = "ec2-for-kops"
   }
+  user_data = file("user-data.sh")
 }
 
+output "aws_instance" {
+  value = aws_instance.myec2.public_ip
+}
+
+output "aws_instance_user_data" {
+  value = aws_instance.myec2.user_data
+}
 
 # here we don't use resource since it tries to create a new profile, instead we want to use an existing profile
 # in case we want to create an instance profile, either we use "create_instance_profile" or we can simply MOVE this block TO THE TOP and uncomment it
