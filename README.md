@@ -5,7 +5,8 @@ create_iam_role is to create single or multiple roles with attaching access poli
 
 create_instance_profile is to create instance profile with a role (either existing or non-existing role)   
 
-create_ec2_with_instance_profile is to create ec2 instances with iam instance profile with associated role and with permissions of that role.
+create_ec2_with_instance_profile is to create ec2 instances with iam instance profile with associated role and with permissions of that role. 
+Edit 18.12.2023: now it has a user data script to create cluster.
 
 create_user_and_group_attachpolicies is to create user and group and attaching access policies to the group.
 

@@ -34,5 +34,31 @@ echo "$(kubectl version --client)"
 kops create cluster --name=${NAME}  --cloud=aws  --zones=eu-central-1a,eu-central-1b,eu-central-1c   --discovery-store=${KOPS_STATE_STORE}/${NAME}/discovery
 
 #to see the default instance group that kops created
-kops get ig --name $NAME
+kops get ig --name ${NAME}
 
+echo "#Build the Cluster 
+#Now we take the final step of actually building the cluster. This'll take a while. 
+#Once it finishes you'll have to wait longer while the booted instances finish downloading Kubernetes components
+# and reach a "ready" state. the default being admin time is 18 hours, we can set it to something else, like 10 years of admin access..."
+
+# kops update cluster --name ${NAME} --yes --admin=87600h
+
+# sleep 120s
+
+# echo "below command is run to change the config of kubectl so that it picks up the admin privileges"
+# kops export kubecfg --admin=87600h
+
+# echo "Remember when you installed kubectl earlier? 
+# The configuration for your cluster was automatically generated and written to ~/.kube/config for you!
+# A simple Kubernetes API call can be used to check if the API is online and listening.
+# Let's use kubectl to check the nodes."
+
+# kubectl get nodes
+
+
+# echo "kops also ships with a handy validation tool that can be ran to ensure your cluster is working as expected."
+# kops validate cluster --wait 10m
+
+
+# echo "You can look at all system components with the following command."
+# kubectl -n kube-system get po
